@@ -21,9 +21,6 @@ basic.forever(function () {
         basic.showString("" + (input.lightLevel()))
         music.playTone(input.lightLevel(), music.beat(BeatFraction.Eighth))
     } else if (sensor == 3) {
-        basic.showString("" + (input.temperature()))
-        music.playTone(input.temperature(), music.beat(BeatFraction.Eighth))
-    } else {
         degrees = input.compassHeading()
         if (degrees < 3 || degrees > 357) {
             basic.showString("N")
@@ -37,5 +34,8 @@ basic.forever(function () {
             basic.showString("" + (degrees))
         }
         music.playTone(input.compassHeading(), music.beat(BeatFraction.Eighth))
+    } else {
+        basic.showString("" + (input.temperature()))
+        music.playTone(input.temperature(), music.beat(BeatFraction.Eighth))
     }
 })
