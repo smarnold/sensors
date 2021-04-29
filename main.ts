@@ -17,9 +17,13 @@ basic.forever(function () {
         1200
         )
         music.playTone(input.acceleration(Dimension.X), music.beat(BeatFraction.Eighth))
+        serial.writeValue("x", input.acceleration(Dimension.X))
+        serial.writeValue("y", input.acceleration(Dimension.Y))
+        serial.writeValue("z", input.acceleration(Dimension.Z))
     } else if (sensor == 2) {
         basic.showString("" + (input.lightLevel()))
         music.playTone(input.lightLevel(), music.beat(BeatFraction.Eighth))
+        serial.writeLine("" + (input.lightLevel()))
     } else if (sensor == 3) {
         degrees = input.compassHeading()
         if (degrees < 3 || degrees > 357) {
@@ -34,8 +38,10 @@ basic.forever(function () {
             basic.showString("" + (degrees))
         }
         music.playTone(input.compassHeading(), music.beat(BeatFraction.Eighth))
+        serial.writeLine("" + (input.compassHeading()))
     } else {
         basic.showString("" + (input.temperature()))
         music.playTone(input.temperature(), music.beat(BeatFraction.Eighth))
+        serial.writeLine("" + (input.temperature()))
     }
 })
