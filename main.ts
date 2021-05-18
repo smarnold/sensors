@@ -21,7 +21,10 @@ basic.forever(function () {
         serial.writeValue("y", input.acceleration(Dimension.Y))
         serial.writeValue("z", input.acceleration(Dimension.Z))
     } else if (sensor == 2) {
-        basic.showString("" + (input.lightLevel()))
+        led.plotBarGraph(
+        input.lightLevel(),
+        200
+        )
         music.playTone(input.lightLevel(), music.beat(BeatFraction.Eighth))
         serial.writeLine("" + (input.lightLevel()))
     } else if (sensor == 3) {
